@@ -1,0 +1,41 @@
+rules:
+  - id: js-undefined-var
+    patterns:
+      - pattern: $VAR
+      - metavariable-pattern:
+          metavariable: $VAR
+          pattern-not-inside: |
+            var $VAR
+      - metavariable-pattern:
+          metavariable: $VAR
+          pattern-not-inside: |
+            let $VAR
+      - metavariable-pattern:
+          metavariable: $VAR
+          pattern-not-inside: |
+            const $VAR
+    message: "Possible undefined variable usage: $VAR"
+    languages: [javascript, typescript]
+    severity: ERROR
+
+  - id: js-eqeq
+    pattern: $X == $Y
+    message: "Use strict equality (===) instead of =="
+    languages: [javascript, typescript]
+    severity: WARNING
+
+  - id: js-console-log
+    pattern: console.log(...)
+    message: "Remove console.log() from production code."
+    languages: [javascript, typescript]
+    severity: INFO
+
+  - id: js-empty-catch
+    pattern: |
+      try {
+        ...
+      } catch (e) {
+      }
+    message: "Empty catch block — log or handle the error properly."
+    languages: [javascript, typescript]
+    severity: WARNING

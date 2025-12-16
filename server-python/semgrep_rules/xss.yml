@@ -1,0 +1,32 @@
+rules:
+  - id: js-unsafe-document-write
+    patterns:
+      - pattern: document.write($X)
+    message: "Possible XSS via unsafe DOM write (document.write)"
+    severity: WARNING
+    languages: [javascript]
+
+  - id: js-innerhtml-assign
+    patterns:
+      - pattern: $OBJ.innerHTML = $VAL
+    message: "Potential XSS via assignment to innerHTML"
+    severity: WARNING
+    languages: [javascript]
+
+  - id: js-innerhtml-assign
+    pattern: $OBJ.innerHTML = $VAL
+    message: "Potential XSS via assignment to innerHTML"
+    severity: WARNING
+    languages: [javascript]
+
+  - id: js-eval-call
+    pattern: eval($X)
+    message: "Avoid use of eval(), can lead to code injection"
+    severity: ERROR
+    languages: [javascript]
+
+  - id: js-settimeout-eval
+    pattern: setTimeout($CODE, $TIME)
+    message: "Avoid passing strings to setTimeout(), use function references instead"
+    severity: WARNING
+    languages: [javascript]

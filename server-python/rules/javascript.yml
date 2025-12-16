@@ -1,0 +1,8 @@
+rules:
+  - id: js.eval.use
+    languages: [javascript, typescript]
+    severity: WARNING
+    message: Avoid using eval().
+    metadata:
+      category: security
+    pattern: eval(...)

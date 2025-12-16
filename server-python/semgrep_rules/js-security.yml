@@ -1,0 +1,19 @@
+rules:
+  - id: js-eval
+    pattern: eval(...)
+    message: "Avoid eval(), it can run arbitrary code."
+    languages: [javascript, typescript]
+    severity: ERROR
+
+  - id: js-innerhtml-xss
+    pattern: |
+      $OBJ.innerHTML = $VAL
+    message: "Avoid assigning to innerHTML — may cause XSS vulnerabilities."
+    languages: [javascript, typescript]
+    severity: ERROR
+
+  - id: js-document-write
+    pattern: document.write(...)
+    message: "Avoid document.write(), it can introduce security risks."
+    languages: [javascript, typescript]
+    severity: WARNING

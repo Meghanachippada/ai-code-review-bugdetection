@@ -1,0 +1,22 @@
+rules:
+  - id: ts-any-type
+    pattern: ": any"
+    message: "Avoid 'any' type — use a specific type instead."
+    languages: [typescript]
+    severity: WARNING
+
+  - id: ts-implicit-any-param
+    pattern: |
+      function $FUNC($PARAM) {
+        ...
+      }
+    message: "Add type annotation for function parameter."
+    languages: [typescript]
+    severity: INFO
+
+  - id: ts-unused-import
+    pattern: |
+      import $VAR from "$MODULE"
+    message: "Unused import detected — remove it if unnecessary."
+    languages: [typescript]
+    severity: INFO

@@ -1,0 +1,11 @@
+rules:
+  - id: c-unused-variable
+    pattern: "int $X;"
+    message: "Check for unused or uninitialized variables."
+    languages: [c, cpp]
+    severity: WARNING
+  - id: c-getchar-no-check
+    pattern: "getchar()"
+    message: "Ensure getchar() input is properly validated."
+    languages: [c, cpp]
+    severity: INFO

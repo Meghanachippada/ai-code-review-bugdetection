@@ -1,0 +1,13 @@
+rules:
+  - id: java-unused-import
+    pattern: "import $X;"
+    message: "Avoid unused imports in Java files."
+    languages: [java]
+    severity: INFO
+  - id: java-empty-catch
+    pattern: |
+      catch (Exception $E) {
+      }
+    message: "Empty catch blocks should be avoided."
+    languages: [java]
+    severity: WARNING

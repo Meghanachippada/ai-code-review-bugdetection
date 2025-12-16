@@ -1,0 +1,34 @@
+rules:
+  - id: python-unused-variable
+    patterns:
+      - pattern: |
+          $VAR = $VALUE
+      - pattern-not-inside: |
+          def $FUNC(...): ...
+      - pattern-not-inside: |
+          class $CLASS(...): ...
+    message: "Variable `$VAR` assigned but not used."
+    languages: [python]
+    severity: WARNING
+
+  - id: python-bare-except
+    pattern: |
+      except:
+        ...
+    message: "Avoid bare except. Catch specific exceptions."
+    languages: [python]
+    severity: ERROR
+
+  - id: python-eval-exec
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: exec(...)
+    message: "Avoid using eval/exec — they can execute arbitrary code."
+    languages: [python]
+    severity: ERROR
+
+  - id: python-print-in-lib
+    pattern: print(...)
+    message: "Avoid print() statements in production code. Use logging instead."
+    languages: [python]
+    severity: INFO

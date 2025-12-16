@@ -1,0 +1,14 @@
+/* src/index.css */
+@import "tailwindcss";
+div[class*="bg-red-"], 
+div[class*="bg-yellow-"], 
+div[class*="bg-blue-"], 
+div[class*="bg-purple-"] {
+  color: black !important;
+}
+.issue-box, 
+.issue-box * {
+  color: #000 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}

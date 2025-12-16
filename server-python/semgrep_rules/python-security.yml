@@ -1,0 +1,15 @@
+rules:
+  - id: python-insecure-hash
+    pattern: hashlib.md5(...)
+    message: "Avoid MD5 — use SHA256 or stronger."
+    languages: [python]
+    severity: ERROR
+
+  - id: python-hardcoded-secret
+    pattern: |
+      $VAR = "$SECRET"
+    message: "Hardcoded secret or credential detected."
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: security
