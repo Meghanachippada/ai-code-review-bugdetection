@@ -1,75 +1,37 @@
-# -------------------------
 # Logs
-# -------------------------
 logs
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-# -------------------------
-# Node & Frontend
-# -------------------------
+# Node modules
 node_modules/
+
+# Build output
 dist/
 dist-ssr/
 *.local
 
-# -------------------------
-# Editor Directories
-# -------------------------
-.vscode/
+# Editor directories and files
+.vscode/*
 !.vscode/extensions.json
-.idea/
+.idea
 .DS_Store
 
-# -------------------------
-# Python Virtual Environments
-# -------------------------
+# Python virtual environments
 server-python/.venv/
 server-python/lcp_venv/
-*.venv/
 venv/
-ENV/
-env/
-.pytest_cache/
+*.venv/
 
-# -------------------------
-# Python Cache / Artifacts
-# -------------------------
+# Semgrep core large binary
+server-python/**/semgrep-core
+server-python/**/bin/semgrep-core
+
+# Python cache
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
 
-# -------------------------
-# Build + Temp Files
-# -------------------------
-*.egg-info/
-.eggs/
-.coverage
-htmlcov/
-
-# -------------------------
-# Environment Variables
-# -------------------------
+# Environment variables
 .env
-.env.*
-!*.env.example
 
-# -------------------------
-# OS Files
-# -------------------------
-Thumbs.db
-desktop.ini
-
-# -------------------------
-# Avoid huge binaries
-# -------------------------
-server-python/lcp_venv/
-server-python/**/site-packages/
-server-python/**/bin/
-node_modules
-node_modules
+# Frontend build
+frontend/node_modules/
