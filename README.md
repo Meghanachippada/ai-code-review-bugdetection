@@ -1,73 +1,110 @@
-# React + TypeScript + Vite
+# 🧠 AI Code Review & Bug Detection System  
+A full-stack application that performs automated code review, detects bugs, analyzes code quality, and displays issues in a clean dashboard interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project includes:
+- A **FastAPI backend** for authentication, code analysis, and session management  
+- A **React + TypeScript frontend** under `src/`  
+- Integrated **Semgrep rule sets** for static analysis  
+- Clean, modular architecture suitable for academic and production use  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- User Authentication (Signup, Login)
+- Upload or paste code for AI-based review
+- Static analysis using Semgrep rules (Python, JS, Java, C, TS)
+- Dashboard for listing past analysis sessions
+- View detailed issue explanations
+- Dark & modern UI built with React + Tailwind
+- FastAPI backend connected to PostgreSQL (or SQLite)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 🛠️ Installation & Setup Guide
 
-## Expanding the ESLint configuration
+Follow these steps to run the project locally from the GitHub repository.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 1️⃣ Clone the Repository
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+git clone https://github.com/Meghanachippada/ai-code-review-bugdetection.git
+cd ai-code-review-bugdetection
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Backend Setup (FastAPI)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Go to the backend folder:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+cd server-python
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2️⃣ Create & Activate Virtual Environment
+python3 -m venv venv
+source venv/bin/activate     # macOS/Linux
+venv\Scripts\activate        # Windows
+
+3️⃣ Install Dependencies
+pip install -r requirements.txt
+
+4️⃣ Add Environment Variables
+
+Create a .env file inside server-python/:
+
+OPENAI_API_KEY=your_key_here
+DATABASE_URL=sqlite:///./app.db     # or your PostgreSQL URL
+JWT_SECRET_KEY=your_secret
+JWT_ALGORITHM=HS256
+
+
+(Your GitHub repo already includes .env.example)
+
+5️⃣ Run Backend
+uvicorn main:app --reload
+
+
+Backend runs at:
+➡️ http://localhost:8000
+
+🌐 Frontend Setup (React + TypeScript)
+
+Go back to the root folder and install frontend packages:
+
+cd ..
+npm install
+
+6️⃣ Start Frontend
+npm run dev
+
+
+Frontend runs at:
+➡️ http://localhost:5173
+
+🔗 Connecting Frontend to Backend
+
+The API base URL is set in:
+
+src/lib/api.ts
+
+
+Default value:
+
+export const API_BASE_URL = "http://localhost:8000";
+
+
+Change this if backend is hosted elsewhere.
+
+📁 Project Structure
+ai-code-review-bugdetection
+│── server-python/         # FastAPI backend
+│── src/                   # React frontend
+│── public/
+│── rules/                 # Extra rule sets
+│── semgrep_rules/         # Semgrep rule definitions
+│── node_modules/
+│── package.json
+│── requirements.txt
+│── README.md
+
+Author
+
+Bhavya Meghana Chippada
