@@ -1,4 +1,6 @@
+# -------------------------
 # Logs
+# -------------------------
 logs
 *.log
 npm-debug.log*
@@ -7,23 +9,67 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# -------------------------
+# Node & Frontend
+# -------------------------
+node_modules/
+dist/
+dist-ssr/
 *.local
 
-# Editor directories and files
-.vscode/*
+# -------------------------
+# Editor Directories
+# -------------------------
+.vscode/
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
 
-# Python virtual environments
+# -------------------------
+# Python Virtual Environments
+# -------------------------
 server-python/.venv/
+server-python/lcp_venv/
 *.venv/
 venv/
+ENV/
+env/
+.pytest_cache/
+
+# -------------------------
+# Python Cache / Artifacts
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# -------------------------
+# Build + Temp Files
+# -------------------------
+*.egg-info/
+.eggs/
+.coverage
+htmlcov/
+
+# -------------------------
+# Environment Variables
+# -------------------------
+.env
+.env.*
+!*.env.example
+
+# -------------------------
+# OS Files
+# -------------------------
+Thumbs.db
+desktop.ini
+
+# -------------------------
+# Avoid huge binaries
+# -------------------------
+server-python/lcp_venv/
+server-python/**/site-packages/
+server-python/**/bin/
+node_modules
+node_modules
